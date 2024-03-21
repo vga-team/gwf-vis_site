@@ -1,0 +1,107 @@
+<template component>
+  <link rel="stylesheet" href="../lib/w3.css" />
+
+  <div class="w3-container w3-padding-32">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Gallery</h3>
+    <p>
+      Click on an image to see the live demo of the interactive visualization.
+    </p>
+  </div>
+
+  <div class="w3-row-padding">
+    <x-fill :value="items">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <a attr:href="$data.visHref" style="display: block">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding">
+              {{$data.label}}
+            </div>
+            <img
+              attr:src="$data.imageSrc"
+              attr:alt="$data.imageAlt"
+              style="width: 100%; aspect-ratio: 3 / 2"
+            />
+          </div>
+        </a>
+        <br />
+        <a class="w3-button w3-light-grey w3-block" attr:href="$data.codeHref"
+          >See Code</a
+        >
+      </div>
+    </x-fill>
+  </div>
+
+  <script>
+    const IMAGE_SRC_PREFIX = "../images/";
+    const VIS_APP_URL_PREFIX = "https://vga-team.github.io/app/?configUrl=";
+    const VIS_URL_PREFIX = `${VIS_APP_URL_PREFIX}/gwf-vis_examples/`;
+    const CODE_URL_PREFIX = "https://vga-team.github.io/gwf-vis_examples/";
+
+    export default {
+      data: {
+        items: [
+          {
+            label: "Choropleth map for GDP",
+            imageSrc: `${IMAGE_SRC_PREFIX}gdp.png`,
+            imageAlt: "GDP",
+            visHref: `${VIS_URL_PREFIX}gdp.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}gdp.html`,
+          },
+          {
+            label: "Visualization for a MESH output",
+            imageSrc: `${IMAGE_SRC_PREFIX}mesh.png`,
+            imageAlt: "MESH",
+            visHref: `${VIS_URL_PREFIX}mesh.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}mesh.html`,
+          },
+          {
+            label: " Visualization for a SUMMA output",
+            imageSrc: `${IMAGE_SRC_PREFIX}summa.png`,
+            imageAlt: "SUMMA",
+            visHref: `${VIS_URL_PREFIX}summa.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}summa.html`,
+          },
+          {
+            label: "A set of pins on a map (U15)",
+            imageSrc: `${IMAGE_SRC_PREFIX}u15.png`,
+            imageAlt: "U15",
+            visHref: `${VIS_URL_PREFIX}u15.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}u15.html`,
+          },
+          {
+            label:
+              "A set of colored points on a map (Canadian weather stations)",
+            imageSrc: `${IMAGE_SRC_PREFIX}stations.png`,
+            imageAlt: "Canadian weather stations",
+            visHref: `${VIS_URL_PREFIX}stations.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}stations.html`,
+          },
+          {
+            label: "Visualization for a Permafrost output (Contours)",
+            imageSrc: `${IMAGE_SRC_PREFIX}permafrost.png`,
+            imageAlt: "Permafrost",
+            visHref: `${VIS_URL_PREFIX}permafrost.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}permafrost.html`,
+          },
+          {
+            label: "Visualization for GloRiC dataset",
+            imageSrc: `${IMAGE_SRC_PREFIX}gloric.png`,
+            imageAlt: "GloRiC",
+            visHref: `${VIS_URL_PREFIX}gloric.vgaconf`,
+            codeHref: `${CODE_URL_PREFIX}gloric.html`,
+          },
+          {
+            label:
+              "Read gwfvisdb file and plot it using Python (Canadian weather stations)",
+            imageSrc:
+              "https://vga-team.github.io/gwf-vis_examples/stations.jpg",
+            imageAlt: "Weather Stations",
+            visHref: "https://vga-team.github.io/gwf-vis_examples/stations.jpg",
+            codeHref:
+              "https://vga-team.github.io/gwf-vis_examples/read_and_plot.html",
+          },
+        ],
+      },
+    };
+  </script>
+</template>

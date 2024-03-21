@@ -1,0 +1,171 @@
+<template component>
+  <link rel="stylesheet" href="../lib/w3.css" />
+
+  <div class="w3-container w3-padding-32">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Teams</h3>
+    <x-fill :value="teams">
+      <div>
+        <h4>{{$data.name}}</h4>
+        <hr />
+        <x-fill :value="$data.groups" name="group"></x-fill>
+      </div>
+    </x-fill>
+  </div>
+
+  <template name="group">
+    <div>
+      <div>{{$data.name}}</div>
+      <ul class="w3-row-padding w3-grayscale person-list">
+        <x-fill :value="$data.members">
+          <li>
+            <b><a attr:href="$data.profileHref ?? null">{{$data.name}}</a></b>
+            <span class="w3-opacity">{{$data.title}}</span>
+            <i :html="$data.at"></i>
+          </li>
+        </x-fill>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+    const USASK = "University of Saskatchewan";
+    const CS_DEPARTMENT_USASK = `Department of Computer Science, ${USASK}`;
+
+    export default {
+      data: {
+        teams: [
+          {
+            name: "Development and Computing Team",
+            groups: [
+              {
+                name: "",
+                members: [
+                  {
+                    name: "Ehsan Moradi",
+                    title: "Research Assistant",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                  {
+                    name: "Shisong Wang",
+                    title: "Research Assistant",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                  {
+                    name: "Debajyoti Mondal",
+                    title: "Associate Professor",
+                    profileHref:
+                      "https://www.cs.usask.ca/people/faculty%20profiles/debajyoti-mondal.php",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                  {
+                    name: "Kevin Schneider",
+                    title: "Department Head, Professor",
+                    profileHref:
+                      "https://www.cs.usask.ca/people/faculty%20profiles/kevin-schneider.php",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                ],
+              },
+              {
+                name: "Collaborators",
+                members: [
+                  {
+                    name: "Rakib Hasan",
+                    title: "Research Assistant",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                  {
+                    name: "Carl Gutwin",
+                    title: "Professor",
+                    profileHref:
+                      "https://www.cs.usask.ca/people/faculty%20profiles/carl-gutwin.php",
+                    at: CS_DEPARTMENT_USASK,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: "Hydrological Modeling Team",
+            groups: [
+              {
+                name: "",
+                members: [
+                  {
+                    name: "Martyn Clark",
+                    title: "Associate Professor",
+                    profileHref:
+                      "https://water.usask.ca/about/profiles/people/martyn-clark.php",
+                    at: `Associate Director, Centre for Hydrology and Coldwater Laboratory, ${USASK}`,
+                  },
+                  {
+                    name: "Alain Pietroniro",
+                    title: "Professor",
+                    profileHref:
+                      "https://gwf.usask.ca/profiles/people/al-pietroniro.php",
+                    at: "Director, Environment and Climate Change Canada - Water and Climate Services, University of Calgary",
+                  },
+                  {
+                    name: "John Pomeroy",
+                    title:
+                      "Distinguished Professor, Dept. of Geography & Planning",
+                    profileHref:
+                      "https://water.usask.ca/about/profiles/people/john-pomeroy.php",
+                    at: /* html */ `<div style="margin-left: 1em;">Canada Research Chair in Water Resources and Climate Change,<br>Director, <a href="https://www.usask.ca/gwf">Global Water Futures Programme</a>,<br>Director, <a href="https://www.usask.ca/hydrology">USask Centre for Hydrology</a>,<br>Director, USask Coldwater Laboratory, Canmore, Alberta, University of Saskatchewan</div>`,
+                  },
+                ],
+              },
+              {
+                name: "Collaborators",
+                members: [
+                  {
+                    name: "Ala Bahrami",
+                    title: "Post-doctoral Fellow",
+                    profileHref:
+                      "https://gwf.usask.ca/core-modelling//profiles/ala-bahrami.php",
+                    at: USASK,
+                  },
+                  {
+                    name: "Wouter Knoben",
+                    title: "Post-doctoral Fellow",
+                    profileHref:
+                      "https://gwf.usask.ca/core-modelling/profiles/wouter-knoben.php",
+                    at: USASK,
+                  },
+                  {
+                    name: "Chris Marsh",
+                    title: "Post-doctoral Fellow",
+                    profileHref:
+                      "https://gwf.usask.ca/profiles/core-teams/chris-marsh.php",
+                    at: USASK,
+                  },
+                  {
+                    name: "Elshamy Mohamed",
+                    title: "Research Scientist",
+                    profileHref:
+                      "https://water.usask.ca/about/profiles/people/mohamed-elshamy.php",
+                    at: USASK,
+                  },
+                  {
+                    name: "Chris Spence",
+                    title: "Research Scientist",
+                    profileHref:
+                      "https://gwf.usask.ca/people/researchers/eccc/chris-spence.php",
+                    at: "Environment and Climate Change Canada",
+                  },
+                  {
+                    name: "Colin Whitfield",
+                    title: "Associate Professor",
+                    profileHref:
+                      "https://sens.usask.ca/people/faculty/core-faculty/whitfield-colin.php",
+                    at: USASK,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    };
+  </script>
+</template>
