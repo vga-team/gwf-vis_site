@@ -16,17 +16,11 @@
             <div class="w3-display-topleft w3-black w3-padding">
               {{$data.label}}
             </div>
-            <img
-              attr:src="$data.imageSrc"
-              attr:alt="$data.imageAlt"
-              style="width: 100%; aspect-ratio: 3 / 2"
-            />
+            <img attr:src="$data.imageSrc" attr:alt="$data.imageAlt" style="width: 100%; aspect-ratio: 3 / 2" />
           </div>
         </a>
         <br />
-        <a class="w3-button w3-light-grey w3-block" attr:href="$data.codeHref"
-          >See Code</a
-        >
+        <a class="w3-button w3-light-grey w3-block" attr:href="$data.codeHref">See Code</a>
       </div>
     </x-fill>
   </div>
@@ -99,6 +93,14 @@
             visHref: "https://vga-team.github.io/gwf-vis_examples/stations.jpg",
             codeHref:
               "https://vga-team.github.io/gwf-vis_examples/read_and_plot.html",
+          },
+          {
+            label:
+              "Visualization for whole Canadian GloRiC dataset with tiles",
+            imageSrc: `${IMAGE_SRC_PREFIX}gloric_tiles.png`,
+            imageAlt: "GloRiC with tiles",
+            visHref: `${VIS_URL_PREFIX}gloric_tiles.vgaconf`,
+            codeHref: `${EXAMPLES_URL_PREFIX}gloric_tiles.html`,
           },
         ],
       },
